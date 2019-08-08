@@ -49,20 +49,31 @@ namespace TR.Application.Controllers.api
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]Detail detail)
+        public IActionResult Post([FromBody]Detail detail)
         {
+            var inserted = _service.Insert(detail);
+            return Json(inserted);
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put([FromBody]Detail detail)
+        public IActionResult Put(int id, [FromBody]Detail detail)
         {
+            if (id != detail.Id)
+                return StatusCode(400, "O detalhe enviado não corresponde ao id");
+
+            var updated = _service.Update(detail);
+
+            return Json(updated);
+
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _service.Delete(id);
+            return Ok();
         }
     }
 }

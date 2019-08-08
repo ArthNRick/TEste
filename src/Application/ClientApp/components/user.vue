@@ -5,27 +5,27 @@
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item mr-auto">
-            <h3>Dados do usuário #{{userId}}</h3>
+            <h3>Dados do usuário <span v-if="userId">#{{userId}}</span></h3>
           </li>
           <li class="nav-item">
-            <btn class="btn nav-link active bg-danger" @click="apagar()"><icon icon="trash"></icon> Apagar</btn>
+            <button class="btn nav-link active bg-danger" v-if="userId" @click="apagar()"><icon icon="trash"></icon> Apagar</button>
           </li>
         </ul>
       </div>
       <div class="card-body">
         <div class="form-group">
           <label for="name-input">Nome</label>
-          <input type="text" class="form-control" id="name-input" aria-describedby="name-help" placeholder="Digite o nome" v-model="name">
+          <input type="text" class="form-control" name="name-input" id="name-input" aria-describedby="name-help" placeholder="Digite o nome" v-model="name">
           <small id="name-help" class="form-text text-muted">O primeiro nome do usuário.</small>
         </div>
         <div class="form-group">
           <label for="lastName-input">Sobrenome</label>
-          <input type="text" class="form-control" id="lastName-input" aria-describedby="lastName-help" placeholder="Digite o sobrenome" v-model="lastName">
+          <input type="text" class="form-control" name="lastName-input" id="lastName-input" aria-describedby="lastName-help" placeholder="Digite o sobrenome" v-model="lastName">
           <small id="lastName-help" class="form-text text-muted">O sobrenome do usuário.</small>
         </div>
         <div class="form-group">
           <label for="email-input">Email</label>
-          <input type="email" class="form-control" id="email-input" aria-describedby="email-help" placeholder="Digite o email" v-model="email">
+          <input type="email" class="form-control" name="email-input" id="email-input" aria-describedby="email-help" placeholder="Digite o email" v-model="email">
           <small id="email-help" class="form-text text-muted">O e-mail do usuário.</small>
         </div>
 
@@ -39,7 +39,7 @@
     </div>
 
     <hr />
-    <user-details v-if="userId" :userId="userId"></user-details>
+    <detail :userId="userId" v-if="userId"></detail>
 
   </div>
 </template>
@@ -47,7 +47,7 @@
   import Details from './details'
   export default {
     components: {
-      'user-details': Details
+      'detail': Details
     },
     data() {
       return {
@@ -114,6 +114,7 @@
         });
 
     }
-  }</script>
+  }
+</script>
 <style>
 </style>

@@ -32,7 +32,7 @@
               </router-link>
             </td>
             <td>{{user.fullName}}</td>
-           <td>{{user.email}}</td>
+            <td>{{user.email}}</td>
           </tr>
           <tr v-if="!loading && !hasUsers && !hasError">
             <td colspan="3">
@@ -69,9 +69,13 @@
       }).catch(e => {
         if (e.response.status !== 404)
           this.hasError = true;
-        else this.loading = false;
+        else {
+          this.loading = false;
+          this.$swal('Erro ao carregar usuários', `Ocorreu um erro ao carregar os usuários :/\r\n${e.response.data}`, 'warning');
+        }
       });
     }
   }</script>
 <style>
+
 </style>

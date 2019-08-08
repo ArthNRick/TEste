@@ -6,7 +6,7 @@
 
     <!-- Brand -->
     <router-link class="navbar-brand" to="/">
-      <icon :icon="['fab', 'microsoft']" /> AHC resource-crud-test
+      <icon :icon="['fab', 'microsoft']" /> AHC crud-test
     </router-link>
 
     <!-- Links -->

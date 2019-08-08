@@ -7,7 +7,7 @@
           <h3>Detalhes do usuário #{{userId}}</h3>
         </li>
         <li class="nav-item" style="padding:5px;">
-          <router-link to="/new" class="nav-link active bg-success" href="#"><icon icon="address-card"></icon> Novo</router-link>
+          <router-link :to="{name: 'new-detail', params: { userId } } " class="nav-link active bg-success" href="#"><icon icon="address-card"></icon> Novo</router-link>
         </li>
         <!--<li class="nav-item" style="padding:5px;">
           <router-link to="/new" class="nav-link active bg-danger" href="#"><icon icon="trash-alt"></icon> Apagar tudo</router-link>
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="detail in user.details" v-if="hasDetails">
+        <tr v-for="detail in details" v-if="hasDetails">
 
           <td>{{detail.typeText}}</td>
           <td>{{detail.value}}</td>
@@ -33,13 +33,23 @@
             </btn>
           </td>
         </tr>
-        <tr v-if="!hasDetails">
+        <tr v-if="!hasDetails && loaded">
           <td colspan="3">
             <icon icon="ban"></icon> Nenhum detalhe do usuário encontrado.
           </td>
         </tr>
+        <tr v-if="!loaded">
+          <td colspan="3">
+            <icon icon="spinner" spin></icon> Aguarde...
+          </td>
+        </tr>
       </tbody>
     </table>
+
+
+
+
+
   </div>
 
 </template>
@@ -48,7 +58,8 @@
     props: ['userId'],
     data() {
       return {
-        details: []
+        details: [],
+        loaded: false
       }
     },
     computed: {
@@ -65,10 +76,15 @@
     mounted() {
       this.$http.get(`/api/details/${this.userId}`).then(response => {
         this.details = response.data;
+        this.loaded = true;
+      }).catch(e => {
+        this.loaded = true;
+        if (e.response.status !== 404)
+          this.$swal('Carregar detalhes', 'Ocorreu um erro ao carregar os detalhes do usuário :/' + `\r\n${e.response.data}`, 'warning');
       });
     },
     watch: {
-     
+
     }
   }</script>
 <style>
