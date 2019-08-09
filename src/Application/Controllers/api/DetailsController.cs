@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TR.Domain.Entities;
-using TR.Domain.Interfaces;
-using TR.Service.Services;
+using Domain.Entities;
+using Domain.Interfaces;
+using Service.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace TR.Application.Controllers.api
+namespace Application.Controllers.api
 {
     [Route("api/[controller]")]
     public class DetailsController : Controller

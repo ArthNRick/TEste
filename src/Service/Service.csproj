@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\TR.Domain.csproj" />
-    <ProjectReference Include="..\Infra.Data\TR.Infra.Data.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infra.Data\Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

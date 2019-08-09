@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
-using TR.Domain.Entities;
-using TR.Domain.Interfaces;
-using TR.Infra.Data.Context;
+using Domain.Entities;
+using Domain.Interfaces;
+using Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TR.Infra.Data.Repository
+namespace Infra.Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {

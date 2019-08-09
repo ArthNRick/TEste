@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TR.Domain.Entities;
-using TR.Infra.Data.Mapping;
+using Domain.Entities;
+using Infra.Data.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Infra.Data.Context
+namespace Infra.Data.Context
 {
     public class SqlContext : DbContext
     {

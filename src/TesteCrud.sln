@@ -2,13 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TR.Application", "Application\TR.Application.csproj", "{D4C48BF3-D7D4-429C-B32A-71E04BFA7438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{D4C48BF3-D7D4-429C-B32A-71E04BFA7438}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TR.Domain", "Domain\TR.Domain.csproj", "{7F4D2268-50B4-4AD4-9D3D-1D73162C7054}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{7F4D2268-50B4-4AD4-9D3D-1D73162C7054}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TR.Service", "Service\TR.Service.csproj", "{9FDEEC39-DA48-4BCF-B003-63B590437983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{9FDEEC39-DA48-4BCF-B003-63B590437983}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TR.Infra.Data", "Infra.Data\TR.Infra.Data.csproj", "{0696BF5D-E14E-46D4-BEB5-0C9A9F3E4A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.Data", "Infra.Data\Infra.Data.csproj", "{0696BF5D-E14E-46D4-BEB5-0C9A9F3E4A86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

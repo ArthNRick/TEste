@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TR.Domain.Entities;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Infra.Data.Mapping
+namespace Infra.Data.Mapping
 {
     public class DetailMap : IEntityTypeConfiguration<Detail>
     {

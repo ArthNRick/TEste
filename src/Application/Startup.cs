@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TR.Application
+namespace Application
 {
     public class Startup
     {
@@ -22,11 +22,11 @@ namespace TR.Application
 
             services.AddSingleton(_ => Configuration);
 
-            services.AddScoped<TR.Domain.Interfaces.IService<TR.Domain.Entities.User>,
-                                    TR.Service.Services.BaseService<TR.Domain.Entities.User>>();
+            services.AddScoped<Domain.Interfaces.IService<Domain.Entities.User>,
+                                    Service.Services.BaseService<Domain.Entities.User>>();
 
-            services.AddScoped<TR.Domain.Interfaces.IService<TR.Domain.Entities.Detail>,
-                                    TR.Service.Services.BaseService<TR.Domain.Entities.Detail>>();
+            services.AddScoped<Domain.Interfaces.IService<Domain.Entities.Detail>,
+                                    Service.Services.BaseService<Domain.Entities.Detail>>();
 
             // Add framework services.
             services.AddMvc()

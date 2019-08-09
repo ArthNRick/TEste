@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Domain.Values
+namespace Domain.Values
 {
     public enum DetailType : byte
     {

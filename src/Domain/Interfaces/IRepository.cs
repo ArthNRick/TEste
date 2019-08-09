@@ -1,9 +1,9 @@
-﻿using TR.Domain.Entities;
+﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Domain.Interfaces
+namespace Domain.Interfaces
 {
     public interface IRepository<T> where T : BaseEntity
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
-using TR.Domain.Entities;
-using TR.Domain.Interfaces;
-using TR.Infra.Data.Repository;
+using Domain.Entities;
+using Domain.Interfaces;
+using Infra.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Service.Services
+namespace Service.Services
 {
     public class BaseService<T> : IService<T> where T : BaseEntity
     {

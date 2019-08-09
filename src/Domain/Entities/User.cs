@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Domain.Entities
+namespace Domain.Entities
 {
     public class User : BaseEntity
     {

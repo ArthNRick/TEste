@@ -1,9 +1,9 @@
-﻿using TR.Domain.Values;
+﻿using Domain.Values;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TR.Domain.Entities
+namespace Domain.Entities
 {
     public class Detail : Entities.BaseEntity
     {
