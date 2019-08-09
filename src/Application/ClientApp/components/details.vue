@@ -68,8 +68,22 @@
     },
     methods: {
       apagar(detailId) {
-        this.$http.delete(`api/details/${detailId}`).then(response => {
-          this.details = this.details.filter(detail => detail.id != detailId);
+        this.$swal({
+          title: 'Tem certeza?',
+          text: "Tem certeza que deseja deletar esse detalhe?!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sim, apague isso!',
+          cancelButtonText: 'Não, cancelar!'
+        }).then(result => {
+          if (result.value)
+            this.$http.delete(`/api/details/${detailId}`).then(response => {
+              this.$swal('Apagar detalahe', 'Usuário deletado', 'warning').then(x => {
+                this.details = this.details.filter(detail => detail.id != detailId);
+              })
+            });
         });
       }
     },

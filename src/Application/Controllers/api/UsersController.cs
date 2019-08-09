@@ -15,10 +15,12 @@ namespace TR.Application.Controllers.api
     public class UsersController : Controller
     {
         private IService<User> _service;
+        private IService<Detail> _serviceDetail;
 
-        public UsersController(IService<User> service)
+        public UsersController(IService<User> service, IService<Detail> serviceDetail)
         {
             _service = service;
+            _serviceDetail = serviceDetail;
         }
 
         // GET: api/<controller>
@@ -71,6 +73,8 @@ namespace TR.Application.Controllers.api
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            var details = _serviceDetail.Get().Where(detail => detail.UserId == id).ToList();
+            details.ForEach(detail => _serviceDetail.Delete(detail.Id));
             _service.Delete(id);
             return Ok();
         }

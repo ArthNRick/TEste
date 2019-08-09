@@ -12,7 +12,7 @@
           </li>
         </ul>
       </div>
-      <div class="card-body">
+      <div class="card-body" v-if="loaded">
         <div class="form-group">
           <label for="name-input">Nome</label>
           <input type="text" class="form-control" name="name-input" id="name-input" aria-describedby="name-help" placeholder="Digite o nome" v-model="name">
@@ -32,6 +32,10 @@
 
 
       </div>
+      <div class="card-body" v-if="!loaded">
+        <h3><icon icon="spinner" spin></icon> Aguarde...</h3>
+      </div>
+
       <div class="card-footer">
         <button type="button" class="btn btn-lg btn-primary" @click="salvar()"><icon icon="save"></icon> Salvar</button>
       </div>
@@ -51,7 +55,7 @@
     },
     data() {
       return {
-
+        loaded: false,
         "userId": 0,
         "name": "",
         "lastName": "",
@@ -109,10 +113,13 @@
           this.lastName = response.data.lastName;
           this.email = response.data.email;
           this.userId = response.data.id;
+          this.loaded = true;
         }).catch(e => {
+          this.loaded = true;
           console.log(e.response);
         });
-
+      else
+        this.loaded = true;
     }
   }
 </script>
